@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   clearInput = (whatever) => {
-    console.log('clearInput');
     this.setState({
       todoInput: ''
     })
@@ -25,8 +24,16 @@ class App extends Component {
     })
   }
 
+  handleToggle = (todoText) => {
+    let todos = [ ...this.state.todos ];
+    let todoToToggle = todos.find(function(element){ return element.text === todoText; });
+    todoToToggle.completed = !todoToToggle.completed;
+    
+    this.setState({ todos });
+  }
+
   createTodo = (text) => {
-    const todos = [ ...this.state.todos ];
+    let todos = [ ...this.state.todos ];
     todos.push({text: text, completed: false});
     this.setState({ todos });
   }
@@ -35,7 +42,7 @@ class App extends Component {
     return (
       <div>
         <TodoInput createTodo={this.createTodo} clearInput={this.clearInput} todoInput={this.state.todoInput} updateInput={this.updateInput}/>
-        <TodoList todos={this.state.todos}/>
+        <TodoList todos={this.state.todos} handleToggle={this.handleToggle}/>
       </div>
     );
   }
