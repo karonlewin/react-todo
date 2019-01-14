@@ -32,7 +32,7 @@ class TodoInput extends React.Component {
     return (
       <div>
         <input ref={this.inputRef} value={this.props.todoInput}
-               onBlur={this.handleSubmit} onKeyDown={this.handleKeyDown}
+               onKeyDown={this.handleKeyDown}
                onChange={this.handleChange}/>
       </div>
     )

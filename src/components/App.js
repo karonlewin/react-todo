@@ -3,13 +3,15 @@ import logo from '../logo.svg';
 import '../css/App.css';
 import TodoList from './TodoList';
 import TodoInput from './TodoInput';
+import TodoControlBar from './TodoControlBar';
 
 class App extends Component {
   state = {
     todos: [{text: 'Fix dinner', completed: false},
             {text: 'Buy groceries', completed: true},
             {text: 'Wash the car', completed: false}],
-    todoInput: ''
+    todoInput: '',
+    filterStatus: 'all'
   }
 
   clearInput = (whatever) => {
@@ -28,7 +30,7 @@ class App extends Component {
     let todos = [ ...this.state.todos ];
     let todoToToggle = todos.find(function(element){ return element.text === todoText; });
     todoToToggle.completed = !todoToToggle.completed;
-    
+
     this.setState({ todos });
   }
 
@@ -38,11 +40,19 @@ class App extends Component {
     this.setState({ todos });
   }
 
+  filterTodos = (newStatus) => {
+    console.log(newStatus);
+    this.setState({
+      filterStatus: newStatus
+    })
+  }
+
   render() {
     return (
       <div>
         <TodoInput createTodo={this.createTodo} clearInput={this.clearInput} todoInput={this.state.todoInput} updateInput={this.updateInput}/>
-        <TodoList todos={this.state.todos} handleToggle={this.handleToggle}/>
+        <TodoList todos={this.state.todos} handleToggle={this.handleToggle} filterStatus={this.state.filterStatus}/>
+        <TodoControlBar filterTodos={this.filterTodos}/>
       </div>
     );
   }
