@@ -41,10 +41,14 @@ class App extends Component {
   }
 
   filterTodos = (newStatus) => {
-    console.log(newStatus);
     this.setState({
       filterStatus: newStatus
     })
+  }
+
+  clearCompleted = () => {
+    let todos = [ ...this.state.todos ];
+    this.setState({todos: todos.filter(todo => !todo.completed)})
   }
 
   render() {
@@ -52,7 +56,7 @@ class App extends Component {
       <div>
         <TodoInput createTodo={this.createTodo} clearInput={this.clearInput} todoInput={this.state.todoInput} updateInput={this.updateInput}/>
         <TodoList todos={this.state.todos} handleToggle={this.handleToggle} filterStatus={this.state.filterStatus}/>
-        <TodoControlBar filterTodos={this.filterTodos}/>
+        <TodoControlBar filterTodos={this.filterTodos} todosLeftCount={this.state.todos.filter(todo => !todo.completed).length} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
