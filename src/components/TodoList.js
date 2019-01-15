@@ -15,12 +15,15 @@ class TodoList extends React.Component {
 
   render(){
     return (
-      <div>
-        TodoList
-        {this.filteredTodos().map((todo, index) => (
-          <Todo todo={todo} key={todo.text} handleToggle={this.props.handleToggle} filterStatus={this.props.filterStatus}/>
-        ))}
-      </div>
+      <section class="section">
+        <div class="container">
+            <i class="fas fa-3x fa-coffee has-text-primary"></i>
+          <label class="label is-success is-large">TODOs</label>
+          {this.filteredTodos().map((todo, index) => (
+            <Todo todo={todo} key={todo.text} handleToggle={this.props.handleToggle} filterStatus={this.props.filterStatus}/>
+          ))}
+        </div>
+      </section>
     )
   }
 }

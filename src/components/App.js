@@ -53,10 +53,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div class="container">
         <TodoInput createTodo={this.createTodo} clearInput={this.clearInput} todoInput={this.state.todoInput} updateInput={this.updateInput}/>
         <TodoList todos={this.state.todos} handleToggle={this.handleToggle} filterStatus={this.state.filterStatus}/>
-        <TodoControlBar filterTodos={this.filterTodos} todosLeftCount={this.state.todos.filter(todo => !todo.completed).length} clearCompleted={this.clearCompleted}/>
+        <TodoControlBar filterTodos={this.filterTodos} todos={this.state.todos} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }
