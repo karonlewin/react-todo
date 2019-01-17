@@ -29,3 +29,12 @@ button {
 input[type='checkbox'] {
   margin-right: 4px;
 }
+
+.inline-div {
+  display: inline;
+  margin-left: 5px;
+}
+
+.inline-div button {
+  margin-top: 4px;
+}

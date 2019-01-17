@@ -30,10 +30,10 @@ class TodoInput extends React.Component {
 
   render(){
     return (
-      <div class="control">
+      <div className="control">
         <br/>
         <input ref={this.inputRef} value={this.props.todoInput}
-               onKeyDown={this.handleKeyDown} class="input is-primary"
+               onKeyDown={this.handleKeyDown} className="input is-primary"
                onChange={this.handleChange} placeholder="What needs to be done?!"/>
       </div>
     )
