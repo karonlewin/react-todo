@@ -7,7 +7,7 @@ import TodoControlBar from './TodoControlBar';
 
 class App extends Component {
   state = {
-    todos: [{text: 'Fix dinner', completed: false},
+    todos: [{text: 'Fix the computer', completed: false},
             {text: 'Buy groceries', completed: true},
             {text: 'Wash the car', completed: false}],
     todoInput: '',
