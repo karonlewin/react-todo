@@ -8,7 +8,9 @@ class TodoControlBar extends React.Component {
         {this.props.todos.filter(todo => !todo.completed).length} item{this.props.todos.filter(todo => !todo.completed).length > 1 ? 's' : ''} left
         <progress class="progress is-success" value={this.props.todos.filter(todo => todo.completed).length} max={this.props.todos.length}></progress>
         <br/>
-        <button type="button" class="button is-info" onClick={() => this.props.filterTodos('all')}>
+        <button type="button" class="button is-info"
+                onClick={() => this.props.filterTodos('all')}
+                disabled={this.props.filterStatus === 'all'}>
           <span class="icon">
             <i class="fas fa-list-alt"></i>
           </span>
@@ -16,7 +18,9 @@ class TodoControlBar extends React.Component {
             All
           </span>
         </button>
-        <button type="button" class="button is-warning" onClick={() => this.props.filterTodos('active')}>
+        <button type="button" class="button is-warning"
+                onClick={() => this.props.filterTodos('active')}
+                disabled={this.props.filterStatus === 'active'}>
           <span class="icon">
             <i class="fas fa-exclamation-circle"></i>
           </span>
@@ -24,7 +28,9 @@ class TodoControlBar extends React.Component {
             Active
           </span>
         </button>
-        <button type="button" class="button is-success" onClick={() => this.props.filterTodos('completed')}>
+        <button type="button" class="button is-success"
+                onClick={() => this.props.filterTodos('completed')}
+                disabled={this.props.filterStatus === 'completed'}>
           <span class="icon">
             <i class="fas fa-check-circle"></i>
           </span>
